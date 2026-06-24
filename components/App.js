@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Upload, RotateCcw, Sparkles, FileText, Search, Mail, ExternalLink, Lock, Send } from "lucide-react";
 import { buildGmailUrl } from "../lib/buildMailtoUrl.js";
 
@@ -58,12 +58,11 @@ const STEPS = [
 ];
 
 export default function App() {
-  const [isSubscribed, setIsSubscribed] = useState(() => {
-    if (typeof window !== "undefined") {
-      return localStorage.getItem("cos_subscribed") === "1";
-    }
-    return false;
-  });
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  useEffect(() => {
+    if (localStorage.getItem("cos_subscribed") === "1") setIsSubscribed(true);
+  }, []);
   const [subscriberEmail, setSubscriberEmail] = useState("");
   const [subLoading, setSubLoading] = useState(false);
   const [subError, setSubError] = useState("");
