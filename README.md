@@ -71,7 +71,8 @@ Open [http://localhost:3000](http://localhost:3000).
 
 | Variable | Required | Description |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | Yes | Anthropic API key. Powers email generation and web research. |
+| `ANTHROPIC_API_KEY` | Yes (primary) | Anthropic API key. Powers email generation and web research. |
+| `GOOGLE_AI_API_KEY` | Yes (fallback) | Google AI Studio API key. Powers Gemini 2.5 Pro when Anthropic is unavailable. Get one free at [aistudio.google.com](https://aistudio.google.com). |
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes | Your Supabase project URL. |
 | `SUPABASE_SERVICE_ROLE_KEY` | Yes | Supabase service role key. Used server-side to write signups. |
 | `UPSTASH_REDIS_REST_URL` | No | Upstash Redis REST URL. Enables rate limiting (5 req/hour/IP). Without this, rate limiting is skipped. |
