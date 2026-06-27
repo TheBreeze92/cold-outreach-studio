@@ -4,3 +4,8 @@
 node_modules/
 .next/
 .DS_Store
+
+# Agent skill tooling (installed locally via `npx skills add`)
+.agents/
+.claude/
+skills-lock.json
